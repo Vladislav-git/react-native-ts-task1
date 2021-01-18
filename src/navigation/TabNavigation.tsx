@@ -2,6 +2,7 @@ import * as React from 'react';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import mainPage from '../components/MainPage';
 import settings from '../components/Settings';
+import shopList from '../components/ShopList'
 import {useC} from '../context/Context'
 
 const Tab = createMaterialBottomTabNavigator();
@@ -18,6 +19,7 @@ export default function TabNavigation () {
         >
             <Tab.Screen name='Main' options={{tabBarColor: 'black'}} component={mainPage}/>
             <Tab.Screen name="Settings" component={settings} />
+            <Tab.Screen name='Shop List' component={shopList}/>
         </Tab.Navigator>
     );
 }

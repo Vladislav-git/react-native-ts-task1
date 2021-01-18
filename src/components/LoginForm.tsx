@@ -59,7 +59,7 @@ export default function LoginForm (navigation:object) {
             alignSelf: "center",
         }
     });
-
+    
     return (
         <View style={styles.MainView}>
             <View style={styles.View}>

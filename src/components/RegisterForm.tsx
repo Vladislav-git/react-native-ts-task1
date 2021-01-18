@@ -1,10 +1,8 @@
 import React, {useState} from 'react';
 import {TouchableOpacity, Text, View, TextInput, StyleSheet} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {useC} from '../context/Context'
-// import { logger } from 'react-native-logs';
-
-// let log = logger.createLogger();
+import {useC} from '../context/Context';
+import {registrationValid} from '../validation/validation';
 
 const default_model = {
     firstname: '',
@@ -13,8 +11,6 @@ const default_model = {
     password: '',
     shops: [],
 };
-
-
 
 export default function RegisterForm (navigation:object) {
 
@@ -105,9 +101,16 @@ export default function RegisterForm (navigation:object) {
                 />
             </View>
             <TouchableOpacity
-                onPress={() => {
-                    AsyncStorage.setItem(state.model.email, JSON.stringify(state.model))
-                    navigation.navigation.navigate('Login')
+                onPress={async () => {
+                    if (registrationValid(state.model).error === null) {
+                        let user = await AsyncStorage.getItem(state.model.email);
+                        let parsedUser = JSON.parse(user);
+                        if (parsedUser === null) {
+                            AsyncStorage.setItem(state.model.email, JSON.stringify(state.model))
+                            navigation.navigation.navigate('Login')
+                        } else
+                            alert('try again')
+                        } 
                 }
                 }
                 style={styles.Button}
