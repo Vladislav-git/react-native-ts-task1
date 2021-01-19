@@ -17,7 +17,7 @@ export default function TabNavigation () {
         inactiveColor={darkTheme ? '#a69a9b' : "#9ea7b5"}
         barStyle={{ backgroundColor: darkTheme ? '#06103d' : 'white' }}
         >
-            <Tab.Screen name='Main' options={{tabBarColor: 'black'}} component={mainPage}/>
+            <Tab.Screen name='Main' component={mainPage}/>
             <Tab.Screen name="Settings" component={settings} />
             <Tab.Screen name='Shop List' component={shopList}/>
         </Tab.Navigator>
