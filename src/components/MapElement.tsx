@@ -20,7 +20,7 @@ export default function MapElement ({navigation}) {
     const [shop, setShop] = useState({shopname: '', shoplat: '', shoplon: '', shoptype: 'Supermarket', isLiked: false})
     const [like, setLike] = useState(false)
     const [input, setInput] = useState('')
-    let pop = false
+    
 
     const newLocation = async () => {
         const location = await getLocation();

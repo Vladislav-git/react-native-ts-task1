@@ -36,7 +36,6 @@ export const shopValid = (data) => {
     for (let i = 0 ; i < data.shops.length; i++) {
         arr.push(shopSchema.validate(data.shops[i]))
     }
-    console.log(arr)
     for (let i = 0 ; i < arr.length; i++) {
         if (arr[i].error === null) {
             continue;
@@ -44,7 +43,6 @@ export const shopValid = (data) => {
             err = 'error'
         }
     }
-    console.log(err)
     return err
 }
 

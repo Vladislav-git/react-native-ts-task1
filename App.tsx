@@ -1,10 +1,7 @@
-import React, {useState} from 'react';
-import { Text, View } from 'react-native';
+import React from 'react';
 import { NavigationContainer } from "@react-navigation/native";
 import MainNavigation from './src/navigation/MainNavigation'
 import {Provider} from './src/context/Context'
-
-
 
 const App: React.FC = () => {
 

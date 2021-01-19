@@ -23,45 +23,41 @@ const Settings = () => {
 
     useEffect(() => {getNameLocation()},[])
 
-    const styles = StyleSheet.create({
-        Text: {
-            color: darkTheme ? 'white' : 'black',
-        },
-        View: {
-            height: 800,
-            width: 400,
-            flex: 1,
-            backgroundColor: darkTheme ? 'black' : 'white',
-    
-            alignSelf: 'center',
-            alignItems: 'center',
-            fontSize: 16,
-        },
-        Box: {
-            marginTop: 200,
-            alignSelf: 'center',
-        },
-        Label: {
-            marginTop: 200,
-            color: darkTheme ? 'white' : 'black',
-        }
-    })
+
 
     return (
-        <View style={styles.View}>
+        <View style={{...styles.View, backgroundColor: darkTheme ? 'black' : 'white',}}>
             <CheckBox
-                style={styles.Box}
-                value={darkTheme}
-                onValueChange={toggleTheme}
-                tintColors={{ true: 'white', false: 'black' }}
+            style={styles.Box}
+            value={darkTheme}
+            onValueChange={toggleTheme}
+            tintColors={{ true: 'white', false: 'black' }}
             />
             {darkTheme
-                ? <Text style={styles.Text}>Change to light theme</Text>
-                : <Text style={styles.Text}>Change to dark theme</Text>
+                ? <Text style={{color: darkTheme ? 'white' : 'black',}}>Change to light theme</Text>
+                : <Text style={{color: darkTheme ? 'white' : 'black',}}>Change to dark theme</Text>
             }
-            <Text style={styles.Label}>You are in: {name}</Text>
+            <Text style={{...styles.Label, color: darkTheme ? 'white' : 'black',}}>You are in: {name}</Text>
         </View>
     ); 
 }
+
+const styles = StyleSheet.create({
+    View: {
+        height: 800,
+        width: 400,
+        flex: 1,
+        alignSelf: 'center',
+        alignItems: 'center',
+        fontSize: 16,
+    },
+    Box: {
+        marginTop: 200,
+        alignSelf: 'center',
+    },
+    Label: {
+        marginTop: 200,
+    }
+})
 
 export default Settings;

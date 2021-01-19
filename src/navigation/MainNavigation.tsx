@@ -9,10 +9,7 @@ import {useC} from '../context/Context'
 import mapElement from '../components/MapElement'
 
 
-
 const Stack = createStackNavigator();
-
-
 
 const MainNavigation = () => {
 
